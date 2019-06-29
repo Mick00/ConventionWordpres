@@ -1,0 +1,11 @@
+<div class="card d-flex my-4">
+  {% if thumbnail_url|length > 1 %}
+    <img src="{{thumbnail_url}}" alt="{{thumbnail_alt|escape}}" class="card-img-top"/>
+  {% endif %}
+    <div class="card-body">
+      <h3>{{title}}</h3>
+      <p class="text-bold">Du {{date_start}} au {{date_end}}</p>
+      <p>{{excerpt}}</p>
+      <a href="{{url}}" class="btn btn-primary">En savoir plus</a>
+    </div>
+</div>

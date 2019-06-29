@@ -7,3 +7,9 @@ foreach ( $blocs as $bloc ) {
 	}
 	require_once $bloc;
 }
+
+function render_block_with_twig($template, $param = []){
+  $loader = new \Twig\Loader\FilesystemLoader(APP_APP_DIR."src/View/gutenberg");
+  $twig = new \Twig\Environment($loader);
+  return $twig->render($template.".twig", $param);
+}
