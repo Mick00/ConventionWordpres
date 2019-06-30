@@ -66,6 +66,10 @@ Theme::bootstrap( require APP_APP_DIR . 'config.php' );
  * Register hooks.
  */
 require_once APP_APP_DIR . 'hooks.php';
+/*
+ * Register custom field types.
+ */
+require_once APP_APP_DIR . 'registerFields.php';
 
 add_action(
 	'after_setup_theme',

@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.3.1",
+    "@wordpress/element": "^2.5.0",
     "airbnb-browser-shims": "^2.1.0",
     "autoprefixer": "^8.4.1",
     "babel-core": "^6.26.3",

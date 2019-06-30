@@ -68,4 +68,3 @@ add_action( 'after_setup_theme', 'app_bootstrap_carbon_fields', 100 );
 add_action( 'carbon_fields_register_fields', 'app_bootstrap_carbon_fields_register_fields' );
 add_filter( 'carbon_fields_map_field_api_key', 'app_filter_carbon_fields_google_maps_api_key' );
 add_filter( 'carbon_fields_post_meta_container_saved', 'Conventions\PostMetaSaved\exhibitor_saved');
-add_filter( 'pre_get_posts', 'add_search_fields',20);
