@@ -6,8 +6,6 @@
  *
  * @package WPEmergeTheme
  */
-
-
 return [
 	/**
 	 * Array of service providers you wish to enable.
@@ -86,8 +84,9 @@ return [
 	 */
 	'views'               => [
 		get_stylesheet_directory(),
-	 get_template_directory(),
-	  APP_APP_DIR."src/View" ],
+		get_template_directory(),
+		APP_APP_DIR.'src/View',
+	 ],
 
 	/**
 	 * Other config goes after this comment.
