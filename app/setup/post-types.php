@@ -73,6 +73,36 @@ register_post_type( 'conferences', array(
 	),
 ));
 
+register_post_type( 'exhibitorslist', array(
+	'labels' => array(
+		'name'               => __( 'Liste d\'exposants', 'app' ),
+		'singular_name'      => __( 'Liste d\'exposant', 'app' ),
+		'add_new'            => __( 'Ajouter une liste', 'app' ),
+		'add_new_item'       => __( 'Ajouter une list', 'app' ),
+		'view_item'          => __( 'Voir l\'exposant', 'app' ),
+		'edit_item'          => __( 'Modifier l\'exposant', 'app' ),
+		'new_item'           => __( 'Nouvelle l\'exposant', 'app' ),
+		'view_item'          => __( 'Voir l\'exposant', 'app' ),
+		'search_items'       => __( 'Chercher un exposant', 'app' ),
+		'not_found'          => __( 'Aucun exposant', 'app' ),
+		'not_found_in_trash' => __( 'Aucun exposant trouvé dans la corbeille', 'app' ),
+	),
+	'public'              => true,
+	'exclude_from_search' => false,
+	'show_ui'             => true,
+	'show_in_rest'       => false,
+	'capability_type'     => 'post',
+	'hierarchical'        => false,
+	'_edit_link'          => 'post.php?post=%d',
+	'query_var'           => true,
+	'menu_icon'           => 'dashicons-admin-post',
+	'supports'            => array( 'title', 'editor', 'page-attributes','excerpt'),
+	'rewrite'             => array(
+		'slug'       => 'exposants',
+		'with_front' => false,
+	),
+));
+
 register_post_type( 'exhibitor', array(
 	'labels' => array(
 		'name'               => __( 'Exposants', 'app' ),

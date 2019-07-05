@@ -1,0 +1,10 @@
+<div class="d-flex d-wrap" id="kiosk{{kiosk}}">
+  <div class="exhibitors-wrapper d-flex">
+    {% for exhibhitor in exhibitors %}
+      <div class="exhibitor-wrapper">
+        <h3>{{ exhibitor.firstname }} {{ exhibitor.lastname }}</h3>
+        <img class="{{ exhibitor.imgsrc }}" alt="{{ exhibitor.firstname }} {{ exhibitor.lastname}}"/>
+      </div>
+    {% endfor %}
+  </div>
+</div>

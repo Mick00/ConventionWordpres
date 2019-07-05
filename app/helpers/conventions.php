@@ -20,38 +20,26 @@ function get_convention_data($convention){
   );
 }
 
-add_action('save_post','create_or_update_conferences_post',10,2);
-function create_or_update_conferences_post($con_id, $con_post){
-  if($con_post->post_type !== 'convention'){
-    return;
-  }
-  /* Remove action to stop infinite loop */
-  remove_action('save_post','create_or_update_conferences_post',10,2);
-  $args = [
-    'post_title'  => $con_post->post_title,
-    'post_type'   => 'conferences',
-    'post_status' => 'publish',
-  ];
-  $conference_post_id = get_metadata('post', $con_id, '_conference_id');
-  if (!empty($conference_post_id)) {
-    $args['ID'] = $conference_post_id;
-  }
-  $conference_post_id = wp_insert_post($args);
-  if ($conference_post_id && !is_wp_error($conference_post_id)) {
-    /* Register a hook or meta get overide later by the current post*/
-    add_action('carbon_fields_post_meta_container_saved','set_conferenceid_meta',10,2);
-    update_metadata('post', $conference_post_id, '_convention_id', $con_id);
-  }
-  add_action('save_post','create_or_update_conferences_post',10,2);
-}
-
-function set_conferenceid_meta($con_id, $con_after){
-  remove_action('carbon_fields_post_meta_container_saved','set_conferenceid_meta',10,2);
-  $conference = get_posts([
-    'post_type' => 'conferences',
-    'meta_key'  => '_convention_id',
-    'meta_value'=> $con_id,
-    'post_status' => 'any',
-  ])[0];
-  update_metadata('post', $con_id, '_conference_id', $conference->ID );
-}
+// add_action('save_post','create_or_update_conferences_post',10,2);
+// function create_or_update_conferences_post($con_id, $con_post){
+//   return;
+//   /* Remove action to stop infinite loop */
+//   remove_action('save_post','create_or_update_conferences_post',10,2);
+//
+//   if ($conference_post_id && !is_wp_error($conference_post_id)) {
+//     update_metadata('post', $conference_post_id, '_convention_id', $con_id);
+//   } else {
+//     echo $list_post_id->get_error_message();
+//   }
+// }
+//
+// function set_conferenceid_meta($con_id, $con_after){
+//   remove_action('carbon_fields_post_meta_container_saved','set_conferenceid_meta',10,2);
+//   $conference = get_posts([
+//     'post_type' => 'conferences',
+//     'meta_key'  => '_convention_id',
+//     'meta_value'=> $con_id,
+//     'post_status' => 'publish',
+//   ])[0];
+//   update_metadata('post', $con_id, '_conference_id', $conference->ID );
+// }

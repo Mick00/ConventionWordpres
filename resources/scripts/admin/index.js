@@ -3,7 +3,11 @@ import config from '@config';
 //import { createHooks } from '@wordpress/hooks';
 import '@styles/admin';
 // import 'airbnb-browser-shims'; // Uncomment if needed
-import { registerFieldType } from '@carbon-fields/core';
+/**
+ * External dependencies.
+ */
+//import { registerFieldType } from '@carbon-fields/core';
+import 'react';
 import RoomField from './roomField';
 
 registerFieldType( 'room', RoomField );
