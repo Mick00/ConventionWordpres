@@ -20,6 +20,42 @@ function get_convention_data($convention){
   );
 }
 
+function get_associated($convention_id, $post_type, $qt = 1){
+  $posts = get_posts([
+    'post_type'         => $post_type,
+    'post_status'       => 'publish',
+  ]);
+  foreach ($posts as $post) {
+    $meta = carbon_get_post_meta($post->ID, 'convention');
+    if (count($meta) > 0 && $meta[0]['id'] == $convention_id){
+      return $post;
+    }
+  }
+  return;
+}
+
+function custom_post_meta($view, $post){
+  if ($post->post_type === 'convention') {
+    return "conventions/convention_meta";
+  } else if ($post->post_type === 'conferences'){
+    return "conferences/conference_meta";
+  } else if ($post->post_type === 'exhibitorslist'){
+    return "exhibitorslist/exhibitorslist_meta";
+  }
+  return $view;
+}
+
+function get_exhibitor_kiosk($convid, $exid){
+  $conv_ex = carbon_get_post_meta($convid, 'exhibitors');
+  foreach ($conv_ex as $exposition) {
+    foreach ($exposition['exposants'] as $exhibitor) {
+      if($exhibitor['id'] == $exid){
+        return $exposition['kiosk'];
+      }
+    }
+  }
+  return "introuvable";
+}
 // add_action('save_post','create_or_update_conferences_post',10,2);
 // function create_or_update_conferences_post($con_id, $con_post){
 //   return;

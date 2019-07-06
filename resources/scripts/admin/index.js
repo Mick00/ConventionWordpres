@@ -6,8 +6,3 @@ import '@styles/admin';
 /**
  * External dependencies.
  */
-//import { registerFieldType } from '@carbon-fields/core';
-import 'react';
-import RoomField from './roomField';
-
-registerFieldType( 'room', RoomField );

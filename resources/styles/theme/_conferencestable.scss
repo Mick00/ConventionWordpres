@@ -1,0 +1,12 @@
+.hour {
+  font-size: 0.75em;
+  margin-top: -0.3em;
+  padding: 0.3em;
+  background-color: $secondary;
+  color: $white;
+  @extend .rounded;
+  margin-right: 0.2em;
+}
+.conferences {
+  max-width: 60em;
+}

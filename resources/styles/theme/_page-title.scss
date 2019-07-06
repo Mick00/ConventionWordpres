@@ -1,11 +1,13 @@
-.article__head.has-bg {
-  background-position: center;
-  background-size: auto;
-  background-repeat: no-repeat;
-  height: 400px;
-}
 
 .article__head {
+  height: 400px;
+  .has-bg {
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+  }
 
   ul {
     list-style: none;

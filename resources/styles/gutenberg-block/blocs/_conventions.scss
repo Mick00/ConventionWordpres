@@ -1,0 +1,19 @@
+.conventions-bloc {
+  div.card-img-top {
+    min-height: 200px;
+    width: 100%
+  }
+  .convention-main {
+    flex: 2 2 70%;
+    align-content: flex-end;
+    .card-img-top{
+      flex-grow: 1;
+    }
+    .card-body{
+      flex-grow: 0;
+    }
+  }
+  .convention-secondary {
+    flex: 1 1 30%;
+  }
+}

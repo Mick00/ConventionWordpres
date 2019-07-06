@@ -68,3 +68,20 @@ add_action( 'after_setup_theme', 'app_bootstrap_carbon_fields', 100 );
 add_action( 'carbon_fields_register_fields', 'app_bootstrap_carbon_fields_register_fields' );
 add_filter( 'carbon_fields_map_field_api_key', 'app_filter_carbon_fields_google_maps_api_key' );
 add_filter( 'carbon_fields_post_meta_container_saved', 'Conventions\PostMetaSaved\exhibitor_saved');
+
+/*
+ * Theme hooks
+ *
+ */
+
+ add_filter('emergence_render_post_meta', 'custom_post_meta',10,2);
+ add_action('emergence_content_after_content', function(){
+	 global $post;
+	 if ($post->post_type === 'exhibitorslist') {
+		WPEmerge\render('exhibitorslist/exhibitorslist');
+	} else if ($post->post_type === 'exhibitor'){
+		 WPEmerge\render('exhibitors/exhibitor');
+	 } else if ($post->post_type === 'conferences'){
+		 WPEmerge\render('conferences/conferences');
+	 }
+ });

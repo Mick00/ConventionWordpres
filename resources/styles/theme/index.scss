@@ -29,3 +29,13 @@
 @import './_navbar.scss';
 @import './_articles.scss';
 @import './_flex.scss';
+@import './_conferencestable.scss';
+
+.no-decoration {
+  list-style: none;
+  padding-left: 0;
+}
+
+.bg-gradient {
+    background-image: linear-gradient(to top, rgba($primary,0.8), rgba($secondary, 0.8));
+}
