@@ -1,4 +1,5 @@
 <?php
+$class = "head-page article__head";
 $style = "style=\"\"";
 global $post;
 if (has_post_thumbnail( $post->ID )) {

@@ -29,6 +29,7 @@
 @import './_navbar.scss';
 @import './_articles.scss';
 @import './_flex.scss';
+
 @import './_conferencestable.scss';
 
 .no-decoration {
@@ -38,4 +39,10 @@
 
 .bg-gradient {
     background-image: linear-gradient(to top, rgba($primary,0.8), rgba($secondary, 0.8));
+}
+.wp-block-coblocks-hero.has-gradient-background .has-background-overlay::before {
+  background-image: $primary-gradient;
+}
+.has-gradient-background {
+  background-image: $primary-gradient;
 }
