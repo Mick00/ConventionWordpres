@@ -85,3 +85,17 @@ add_filter( 'carbon_fields_post_meta_container_saved', 'Conventions\PostMetaSave
 		 WPEmerge\render('conferences/conferences');
 	 }
  });
+
+ add_filter('emergence_pagination_next_single_loop', function($label, $post){
+	 if ($post->post_type === 'convention'){
+		 return 'Prochain salon';
+	 }
+ }, 10, 2);
+
+ add_filter('emergence_pagination_previous_single_loop', function ($label, $post){
+	 if ($post->post_type === 'convention') {
+	 	return "Salon précédent";
+	} elseif ($post->post_type === 'conferences' || $post->post_type === 'exhibitor' || $post->post_type === 'exhibitorslist') {
+		return false;
+	}
+ },10,2);

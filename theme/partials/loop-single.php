@@ -31,8 +31,8 @@ global $post;
 	<?php comments_template(); ?>
 
 	<?php
-	$pagination_next_label = apply_filters('emergence_show_pagination_single_loop', 'Next Article', $post);
-	$pagination_back_label = apply_filters('emergence_show_pagination_single_loop', 'Previous Article', $post);
+	$pagination_next_label = apply_filters('emergence_pagination_next_single_loop', 'Next Article', $post);
+	$pagination_back_label = apply_filters('emergence_pagination_previous_single_loop', 'Previous Article', $post);
 	if($pagination_next_label && $pagination_back_label){
 		carbon_pagination(
 			'post',
