@@ -22,13 +22,15 @@
 
 @import '~/bootstrap/scss/bootstrap.scss';
 @import './integrate/*.scss';
+@import './animations/*.scss';
+@import './utilities/*.scss';
 @import '~@styles/gutenberg-block/index.scss';
 @import './_generic*.scss';
 @import './_page-title.scss';
 @import './_footer.scss';
 @import './_navbar.scss';
 @import './_articles.scss';
-@import './_flex.scss';
+
 
 @import './_conferencestable.scss';
 
