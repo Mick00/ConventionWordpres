@@ -46,7 +46,7 @@ function custom_post_meta($view, $post){
 }
 
 function get_exhibitor_kiosk($convid, $exid){
-  $conv_ex = carbon_get_post_meta($convid, 'exhibitors');
+  $conv_ex = carbon_get_post_meta(get_associated($convid, 'exhibitorslist')->ID, 'exhibitors');
   foreach ($conv_ex as $exposition) {
     foreach ($exposition['exposants'] as $exhibitor) {
       if($exhibitor['id'] == $exid){

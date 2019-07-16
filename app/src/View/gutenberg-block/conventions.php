@@ -5,9 +5,11 @@ $upcoming_conventions = get_posts([
   'post_type'         => 'convention',
   'post_status'       => 'publish',
   'meta_query'        =>[
-    'compare'      => '<',
-    'key'          => 'start',
-    'value'        => time(),
+    [
+      'compare'      => '>=',
+      'key'          => '_start',
+      'value'        => date('Y-m-d',time()-610800),
+    ]
   ],
   'order'         => 'DESC',
   'order_by'      => 'meta_query',
