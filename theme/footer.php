@@ -9,7 +9,7 @@
 
 ?>
 		<?php wp_footer(); ?>
-		<footer class="container-fluid text-light pt-5">
+		<footer class="container-fluid text-light pt-2">
 			<div class="row">
 				<div class="widgets-container container d-flex flex-wrap justify-content-center">
 					<?php if(is_active_sidebar('footerleft')): ?>
@@ -24,7 +24,7 @@
 				</div>
 			</div>
 			<div class="row py-2">
-				<span class="mx-auto">Propulsion carrière <?=date('Y');?></span>
+				<span class="mx-auto">Emergence Wordpress <?=date('Y');?> <?=get_socials_icon_link('icon-big mx-1')?></span>
 			</div>
 		</footer>
 	</body>

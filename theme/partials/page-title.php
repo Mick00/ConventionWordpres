@@ -11,7 +11,7 @@ if (is_singular()):?>
   <header class="head-page article__head alignfull" <?=$style?>>
     <div class="gradient-overlay has-bg alignfull d-flex align-items-center mx-auto">
       <div class="container">
-        <h2 class="article__title text-white">
+        <h2 class="article__title">
           <?php the_title(); ?>
         </h2>
         <?php
