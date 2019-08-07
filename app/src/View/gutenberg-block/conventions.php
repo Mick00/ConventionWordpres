@@ -11,13 +11,16 @@ $upcoming_conventions = get_posts([
       'value'        => date('Y-m-d',time()-610800),
     ]
   ],
-  'order'         => 'DESC',
-  'order_by'      => 'meta_query',
+  'order'         => 'ASC',
+  'orderby'      => 'meta_value',
+  'meta_key'      => '_start',
+  'meta_type'     => 'DATE',
 ]);
 $conv_meta = get_convention_data($upcoming_conventions[0]);
 $conv = $upcoming_conventions[0];
 $conf = get_associated($conv->ID, 'conferences');
 $exhibitors = get_associated($conv->ID, 'exhibitorslist');
+if (count($upcoming_conventions) > 0):
 ?>
 
 <div class="conventions-bloc d-flex flex-sm-column flex-md-row flex my-4">
@@ -57,10 +60,11 @@ $exhibitors = get_associated($conv->ID, 'exhibitorslist');
           <h3 class="text-primary"> <a href="<?=get_post_permalink($conv)?>"><?=$conv->post_title?></a></h3>
           <h5><?=sprintf(__('Du %s au %s'),$conv_meta['date_start'], $conv_meta['date_end'])?></h4>
           <p class="card-text"><?=$conv->post_excerpt?></p>
-          <span class="text-muted d-block"><i class="fas fa-map-marker-alt"></i><?=$conv_meta['location_name']?></span>
+          <span class="text-muted d-block"><i class="fas fa-map-marker-alt"></i> <?=$conv_meta['location_name']?></span>
         </li>
       <?php endfor;?>
     </ul>
   </div>
   <?php endif; ?>
 </div>
+<?php endif;
