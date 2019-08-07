@@ -99,3 +99,29 @@ add_filter( 'carbon_fields_post_meta_container_saved', 'Conventions\PostMetaSave
 		return false;
 	}
  },10,2);
+
+ add_filter('manage_convention_posts_columns','set_conventions_columns');
+ function set_conventions_columns($columns){
+ 	unset($columns['cb']);
+	unset($columns['title']);
+ 	$newcols = [
+ 	 'cb'							=> __('<input type="checkbox" />'),
+ 	 'title' 				=> __('Nom du salon'),
+ 	 'begin'			=> __('Débute'),
+	 'ends'				=> __('Se termine'),
+ 	];
+ 	$columns = $newcols + $columns;
+ 	return $columns;
+ }
+
+ add_action('manage_convention_posts_custom_column', 'set_convention_column_content',10,2);
+function set_convention_column_content($column, $post_id){
+	switch ($column){
+		case 'begin':
+		 	echo date_i18n('j F Y', strtotime(carbon_get_post_meta($post_id, 'start')));
+			break;
+		case 'ends':
+			echo date_i18n('j F Y', strtotime(carbon_get_post_meta($post_id,'end')));
+			break;
+	}
+}
