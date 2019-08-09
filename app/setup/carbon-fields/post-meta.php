@@ -25,7 +25,37 @@ Container::make('post_meta', __('Lieu'))
   Field::make('text','location_name',__('Lieu')),
   Field::make('text','location_adress', __('Adresse')),
   Field::make('text', 'postal_code',__('Code postale')),
-));
+))
+->add_fields([
+  Field::make('complex','schedule','Horaire')->add_fields(array(
+    Field::make('select','day_start','Jour de debut')->add_options(get_days_of_week()),
+    Field::make('select','day_end','Jour de fin')->add_options(get_days_of_week()),
+    Field::make('checkbox','closed','Fermé'),
+    Field::make('time','opens_at','Ouverture')->set_storage_format( "H:i" )->set_input_format("H:i","H:i")
+    ->set_conditional_logic(array(
+      array(
+        'field' => 'closed',
+        'value' => false,
+      ) ) ),
+      Field::make('time','closes_at','Fermeture')->set_storage_format( "H:i" )->set_input_format("H:i","H:i")
+      ->set_conditional_logic(array(
+        array(
+          'field' => 'closed',
+          'value' => false,
+        ) ) )
+      ))->set_header_template("<%- day_start %><% if (day_end != day_start){%> au <%- day_end %><%}%> <% if (closed){%> - Fermé <%} else {%> de <%- opens_at %> à <%- closes_at %><%}%>")
+      ->set_layout('tabbed-vertical')
+])
+->add_fields([
+  Field::make('complex', 'pricing', __('Prix d\'entrée'))
+  ->add_fields([
+    Field::make('text', 'package_name', __('Forfait'))->set_width(50),
+    Field::make('text', 'package_price', __('Prix'))->set_width(50),
+  ])->set_layout('tabbed-vertical')->set_header_template('<%- package %>')
+])
+->add_fields([
+  Field::make('image', 'siteplan', __('Plan du site'))
+]);
 
 Container::make('post_meta', __('Exposants'))
 ->where('post_type', '=', 'exhibitorslist')
@@ -80,12 +110,12 @@ Container::make('post_meta', __('Informations'))
       'post_type' => 'convention',
     ]
   ])->set_max(1),
-  Field::make('complex', 'rooms', __('Lieux'))
+  Field::make('complex', 'dates', __('Dates'))
   ->add_fields([
-    Field::make('text', 'room_name', __('Nom du lieu')),
-    Field::make('complex', 'days', __('Jours'))
+    Field::make('date', 'date', __('Jour')),
+    Field::make('complex', 'rooms', __('Salle'))
     ->add_fields([
-      Field::make('date', 'date', __('Jour')),
+      Field::make('text', 'room_name', __('Nom du lieu')),
       field::make('complex', 'conferences', __('Conférences'))
       ->add_fields([
         Field::make('time', 'starts_at', __('Début:')),
@@ -103,10 +133,10 @@ Container::make('post_meta', __('Informations'))
       ->set_header_template('<%- starts_at %>')
     ])
     ->set_layout('tabbed-horizontal')
-    ->set_header_template('<%- date %>')
+    ->set_header_template('<%- room_name %>')
   ])
   ->set_layout( 'tabbed-horizontal' )
-  ->set_header_template( "<%- room_name %>" )
+  ->set_header_template( "<%- date %>" )
 ]);
 
 

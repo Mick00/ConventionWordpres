@@ -75,6 +75,12 @@ add_filter( 'carbon_fields_post_meta_container_saved', 'Conventions\PostMetaSave
  */
 
  add_filter('emergence_render_post_meta', 'custom_post_meta',10,2);
+ add_action('emergence_content_before_content', function(){
+	 global $post;
+	 if ($post->post_type === 'convention'){
+		 WPEmerge\render('conventions/convention_before');
+	 }
+ });
  add_action('emergence_content_after_content', function(){
 	 global $post;
 	 if ($post->post_type === 'exhibitorslist') {

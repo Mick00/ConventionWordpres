@@ -31,7 +31,7 @@ function get_associated($convention_id, $post_type, $qt = 1){
       return $post;
     }
   }
-  return;
+  return false;
 }
 
 function custom_post_meta($view, $post){
@@ -46,15 +46,18 @@ function custom_post_meta($view, $post){
 }
 
 function get_exhibitor_kiosk($convid, $exid){
-  $conv_ex = carbon_get_post_meta(get_associated($convid, 'exhibitorslist')->ID, 'exhibitors');
-  foreach ($conv_ex as $exposition) {
-    foreach ($exposition['exposants'] as $exhibitor) {
-      if($exhibitor['id'] == $exid){
-        return $exposition['kiosk'];
+  $exhibitorlist = get_associated($convid, 'exhibitorslist');
+  if($exhibitorlist){    
+    $conv_ex = carbon_get_post_meta($exhibitorlist->ID, 'exhibitors');
+    foreach ($conv_ex as $exposition) {
+      foreach ($exposition['exposants'] as $exhibitor) {
+        if($exhibitor['id'] == $exid){
+          return $exposition['kiosk'];
+        }
       }
     }
   }
-  return "introuvable";
+  return false;
 }
 // add_action('save_post','create_or_update_conferences_post',10,2);
 // function create_or_update_conferences_post($con_id, $con_post){

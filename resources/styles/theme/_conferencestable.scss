@@ -7,22 +7,3 @@
   @extend .rounded;
   margin-right: 0.2em;
 }
-.conferences {
-  max-width: 60em;
-}
-
-.conferences-wrapper {
-  overflow-x: scroll;
-}
-
-.conferences-table {
-  .date-row th, .room-name-row td {
-    border-width: 0;
-    min-width: 20em;
-    max-width: 30em;
-  }
-
-  .date-row th {
-    padding-bottom: 0;
-  }
-}

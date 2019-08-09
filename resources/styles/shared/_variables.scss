@@ -13,7 +13,9 @@
  $cyan:    map-get($color,'material-cyan');
 
  $primary:       $blue;
+ $dark-primary:  darken($primary,10%);
  $secondary:     map-get($color,'material-indigo');
+ $dark-secondary:darken($secondary, 10%);
  $success:       $green;
  $info:          $cyan;
  $warning:       map-get($color,'material-yellow');
