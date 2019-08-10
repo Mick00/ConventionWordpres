@@ -51,7 +51,7 @@ Container::make('post_meta', __('Lieu'))
   ->add_fields([
     Field::make('text', 'package_name', __('Forfait'))->set_width(50),
     Field::make('text', 'package_price', __('Prix'))->set_width(50),
-  ])->set_layout('tabbed-vertical')->set_header_template('<%- package %>')
+  ])->set_layout('tabbed-vertical')->set_header_template('<%- package_name %>')
 ])
 ->add_fields([
   Field::make('image', 'siteplan', __('Plan du site'))
