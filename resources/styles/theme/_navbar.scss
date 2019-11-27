@@ -10,61 +10,20 @@ nav.admin-bar-showing.fixed-top {
   margin-top: 32px;
 }
 
-
+.lg-brand{
+  display: none;
+}
 #nav {
-  .logo {
-    width: 150px;
+  justify-content: space-between; 
+}
+@include media-breakpoint-up(md) { 
+  .lg-brand{
+    display: block;
   }
-  &.at-top{
-    @extend .navbar-dark;
-
-    .logo-dark {
-      opacity: 1;
-
-    }
-    .logo-light {
-      opacity: 0;
-    }
-
+  .md-brand {
+    display: none;
   }
-
-  &.not-at-top {
-    @extend .navbar-light;
-    @extend .bg-light;
+  #nav {
+    justify-content: center;
   }
 }
-.logo-light {
-  opacity: 1;
-}
-.logo-dark {
-  position: absolute;
-  opacity: 0;
-}
-// #nav.transparent-nav {
-//   .navbar-brand, .nav-item.active a {
-//     color: $light !important;
-//   }
-//   .nav-item .nav-link{
-//     color: rgba($light, 0.7) !important;
-//   }
-//   .navbar-brand {
-//     .logo-light{
-//       opacity: 0;
-//     }
-//     .logo-dark {
-//       opacity: 1;
-//     }
-//   }
-//
-// }
-//
-// .navbar-brand {
-//   max-width: 200px;
-//   .logo-light {
-//     opacity: 1;
-//   }
-//   .logo-dark {
-//     position: absolute;
-//     opacity: 0;
-//   }
-// }

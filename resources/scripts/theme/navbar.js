@@ -1,4 +1,4 @@
-
+/* 
 let head;
 let nav;
 
@@ -52,3 +52,4 @@ const intersectionHandler = (entries, observer) => {
 
   });
 }
+ */

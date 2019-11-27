@@ -21,27 +21,37 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<?php app_shim_wp_body_open(); ?>
-		<nav id="nav" class="fixed-top navbar navbar-expand-md at-top<?=is_admin_bar_showing()?" admin-bar-showing":"" ?>" role="navigation">
-		  <div class="container">
-				<a class="navbar-brand" href="/">
-					<img src="<?=carbon_get_theme_option('dark_logo')?>" alt="Logo sombre <?=bloginfo('name')?>" class="logo logo-dark">
-					<img src="<?=carbon_get_theme_option('light_logo')?>" alt="Logo <?=bloginfo('name')?>" class="logo logo-light">
+		<div>
+			<a class="lg-brand text-center" href="<?=get_home_url()?>">
+				<img src="<?=carbon_get_theme_option('light_logo')?>" alt="Logo sombre <?=bloginfo('name')?>" class="logo mx-auto mt-3">
+			</a>
+			<nav id="nav" class="navbar navbar-expand-md navbar-light<?=is_admin_bar_showing()?" admin-bar-showing":"" ?>" role="navigation">
+				
+				<a href="<?=get_home_url()?>" class="navbar-brand md-brand">
+					<img src="<?=carbon_get_theme_option('light_logo')?>" alt="Logo sombre <?=bloginfo('name')?>" class="logo mt-3">
 				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-items-container" aria-controls="navbar-items-container" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+				<div>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-items-container" aria-controls="navbar-items-container" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
 
-					<?php
-					wp_nav_menu( array(
-						'theme_location'    => 'main-menu',
-						'depth'             => 2,
-						'container'         => 'div',
-						'container_class'   => 'collapse navbar-collapse',
-						'container_id'      => 'navbar-items-container',
-						'menu_class'        => 'nav navbar-nav',
-						'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-						'walker'            => new WP_Bootstrap_Navwalker(),
-					) );
-					?>
-			</div>
-		</nav>
+							<?php
+							wp_nav_menu( array(
+								'theme_location'    => 'main-menu',
+								'depth'             => 2,
+								'container'         => 'div',
+								'container_class'   => 'collapse navbar-collapse',
+								'container_id'      => 'navbar-items-container',
+								'menu_class'        => 'nav navbar-nav mx-auto',
+								'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+								'walker'            => new WP_Bootstrap_Navwalker(),
+							) );
+							?>
+					</div>
+			</nav>
+		</div>
+		<?php
+				if(is_front_page()){
+					do_action('emergence_is_front_page');
+				}
+		?>
