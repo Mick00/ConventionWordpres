@@ -7,3 +7,9 @@
   @extend .rounded;
   margin-right: 0.2em;
 }
+@include media-breakpoint-up(md){
+  .conference {
+    display: flex;
+    align-content: center;
+  }
+}

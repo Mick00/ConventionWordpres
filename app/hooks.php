@@ -132,3 +132,6 @@ function set_convention_column_content($column, $post_id){
 	}
 }
 add_filter( 'wp_nav_menu_items', 'add_socials_to_menu',10,2 );
+add_action('emergence_is_front_page', function(){
+	WPEmerge\render('conventions/conventions_header');
+}, 10, 0);

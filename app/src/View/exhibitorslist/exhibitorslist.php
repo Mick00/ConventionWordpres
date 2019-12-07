@@ -4,10 +4,13 @@ $kioks = carbon_get_post_meta($post->ID, 'exhibitors');
 usort($kioks, function($a, $b) {
     return $a['kiosk'] <=> $b['kiosk'];
 });
+?>
+<div class="kiosk-wrapper">
+<?php
 foreach ($kioks as $kiosk):
   ?>
-  <div class="kiosk d-flex align-items-center m-5 bg-light rounded wow slideInUp" id="kiosk<?=$kiosk['kiosk']?>">
-    <div class="kiosk-exhibitor d-flex flex-column p-5 bg-gradient rounded">
+  <div class="kiosk my-5 bg-light rounded wow slideInLeft" id="kiosk<?=$kiosk['kiosk']?>">
+    <div class="kiosk-exhibitor text-center p-5 bg-gradient rounded">
       <?php foreach ($kiosk['exposants'] as $exhibitor):
         $exid = $exhibitor['id'];?>
         <?= wp_get_attachment_image(carbon_get_post_meta($exid, 'picture'))?>
@@ -24,3 +27,4 @@ foreach ($kioks as $kiosk):
     </div>
   </div>
 <?php endforeach; ?>
+</div>

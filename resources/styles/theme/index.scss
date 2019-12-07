@@ -12,12 +12,12 @@
 
 @import '~@styles/shared/_config.scss';
 @import '~@styles/shared/_variables.scss';
-@import '~@styles/shared/_editor.scss';
 @import './_variables.scss';
+@import '~@styles/shared/_editor.scss';
 @import './_sprite.scss';
 
 /* ------------------------------------------------------------ *\
-    Theme
+Theme
 \* ------------------------------------------------------------ */
 
 @import '~/bootstrap/scss/bootstrap.scss';
@@ -31,10 +31,13 @@
 @import './_navbar.scss';
 @import './_articles.scss';
 @import './_colors.scss';
+@import './_convention.scss';
 
 
 @import './_conferencestable.scss';
+@import './exhibitorlist';
 @import './home_header';
+
 .no-decoration {
   list-style: none;
   padding-left: 0;

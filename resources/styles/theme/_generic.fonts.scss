@@ -4,3 +4,23 @@
 .min-text-w {
   min-width: 22em;
 }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('~@fonts/MontserratBlack.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('~@fonts/MontserratThin.ttf');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('~@fonts/MontserratLight.ttf');
+  font-weight: normal;
+  font-style: normal;
+}

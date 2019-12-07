@@ -1,2 +1,12 @@
-$font-family-sans-serif: Arial, Helvetica, sans-serif;
+$font-family-sans-serif: 'Montserrat', Arial, Helvetica, sans-serif;
 $font-family-serif: Times, 'Times New Roman', serif;
+
+$alignfull: calc( -100vw / 2 + 100% / 2 );
+$alignwide: -15%;
+
+$headings-font-family: 'Montserrat';
+$headings-font-weight: normal;
+
+$btn-border-radius:           2rem !default;
+$btn-border-radius-lg:        2rem !default;
+$btn-border-radius-sm:        2rem !default;

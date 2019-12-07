@@ -21,7 +21,7 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<?php app_shim_wp_body_open(); ?>
-		<div>
+		<div class="nav-wrapper">
 			<a class="lg-brand text-center" href="<?=get_home_url()?>">
 				<img src="<?=carbon_get_theme_option('light_logo')?>" alt="Logo sombre <?=bloginfo('name')?>" class="logo mx-auto mt-3">
 			</a>

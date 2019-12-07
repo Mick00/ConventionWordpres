@@ -1,4 +1,9 @@
+.nav-wrapper {
+  box-shadow: $popover-box-shadow;
+}
+
 nav {
+  font-family: 'Montserrat';
   transition: background-color 0.2s, color 0.2s;
   div.navbar-collapse ul, div.navbar-toggler ul{
     margin-left: auto;
@@ -11,7 +16,9 @@ nav.admin-bar-showing.fixed-top {
 }
 
 .lg-brand{
+  padding-bottom: 10px;
   display: none;
+  border-bottom: 1px $light solid;
 }
 #nav {
   justify-content: space-between; 

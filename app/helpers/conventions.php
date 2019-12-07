@@ -59,26 +59,24 @@ function get_exhibitor_kiosk($convid, $exid){
   }
   return false;
 }
-// add_action('save_post','create_or_update_conferences_post',10,2);
-// function create_or_update_conferences_post($con_id, $con_post){
-//   return;
-//   /* Remove action to stop infinite loop */
-//   remove_action('save_post','create_or_update_conferences_post',10,2);
-//
-//   if ($conference_post_id && !is_wp_error($conference_post_id)) {
-//     update_metadata('post', $conference_post_id, '_convention_id', $con_id);
-//   } else {
-//     echo $list_post_id->get_error_message();
-//   }
-// }
-//
-// function set_conferenceid_meta($con_id, $con_after){
-//   remove_action('carbon_fields_post_meta_container_saved','set_conferenceid_meta',10,2);
-//   $conference = get_posts([
-//     'post_type' => 'conferences',
-//     'meta_key'  => '_convention_id',
-//     'meta_value'=> $con_id,
-//     'post_status' => 'publish',
-//   ])[0];
-//   update_metadata('post', $con_id, '_conference_id', $conference->ID );
-// }
+
+function count_exhibitors($convid){
+  return count(carbon_get_post_meta(get_associated($convid, 'exhibitorslist')->ID, 'exhibitors'));
+}
+
+function count_conferences($convid){
+  $dates = carbon_get_post_meta(get_associated($convid, 'conferences')->ID, 'dates');
+  $n_conf = 0;
+  foreach ($dates as $date){
+    foreach($date['rooms'] as $room){
+      $n_conf += count($room['conferences']);
+    }
+  }
+  return $n_conf;
+}
+
+function count_days($convid){
+  $start = new DateTime(carbon_get_post_meta($convid,'start'));
+  $end = new DateTime(carbon_get_post_meta($convid,'end'));
+  return $start->diff($end)->format("%a");
+}

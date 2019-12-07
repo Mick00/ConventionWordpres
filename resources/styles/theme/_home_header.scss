@@ -1,0 +1,65 @@
+.home-banner img {
+    width: 100%;
+    height: auto;
+}
+.upcoming-conventions {
+    color: white;
+    a, span {
+        color: white;
+    }
+}
+.coming-soon {
+    position: relative;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    &:hover img{
+        top: -5%;
+        left: -5%;
+        width: 110%;
+    }
+    img {
+        transition: 0.5s;
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 0;
+        position: absolute;
+        z-index: -1;
+    }
+}
+@include media-breakpoint-up(md){
+ 
+    .upcoming-conventions{
+        max-width: 1000px;
+        display: grid;
+        grid-template-columns: repeat(3, 32% [col-start]);
+        grid-column-gap: 2%;
+        align-items: stretch;
+        align-items: stretch;
+/*         & > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } */
+
+    }
+    .is_home, .is_home div {
+        display: flex;
+        max-width: 1000px;
+    }
+    
+    .home-link-wrapper{
+        padding: 1em !important;
+    }
+    .home-link {
+        width: 1em;
+        writing-mode: sideways-rl;
+        line-height: 1;
+    }
+}

@@ -23,7 +23,11 @@ Container::make( 'theme_options', __( 'Theme Options', 'app' ) )
 		Field::make( 'header_scripts', 'crb_header_script', __( 'Header Script', 'app' ) ),
 		Field::make( 'footer_scripts', 'crb_footer_script', __( 'Footer Script', 'app' ) ),
 	)
-)->add_fields(add_socials_fields());
+)->add_fields(add_socials_fields())
+->add_fields([
+	Field::make('image', 'header_coming_soon_img', __('Image a venir')),
+	Field::make('text', 'newsletter_subscription_link', __('Lien enregistrement newsletter'))
+	]);
 
 function add_socials_fields(){
 	$fields = [];
@@ -32,3 +36,4 @@ function add_socials_fields(){
 	}
 	return $fields;
 }
+

@@ -1,0 +1,7 @@
+@include media-breakpoint-up(md){
+    .kiosk {
+        display: flex;
+        justify-content: space-between;
+    }
+
+}

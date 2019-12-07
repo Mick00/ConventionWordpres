@@ -1,0 +1,25 @@
+.statistic-wrapper {
+    background-color: $light-gray;
+    padding: 15px;
+}
+
+.statistic {
+    text-align: center;
+}
+
+.big-number {
+    font-size: 40px;;
+}
+
+@include media-breakpoint-up(md){
+
+    .conv-info {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .statistic-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
